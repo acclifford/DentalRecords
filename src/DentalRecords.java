@@ -39,9 +39,11 @@ public class DentalRecords {
 
                 System.out.print("Please enter the uppers for " + justNames[t] + "  : ");
                 typeTeethUpper = keyboard.next();
+                typeTeethUpper = typeTeethUpper.toUpperCase();
 
                 System.out.print("Please enter the lowers for " + justNames[t] + "  : ");
                 typeTeethLower = keyboard.next();
+                typeTeethLower = typeTeethLower.toUpperCase();
 
                 for (int k = 0; k < 8; ++k) {
                     familyToothInfo[t][0][k] = String.valueOf(typeTeethUpper.charAt(k));
@@ -125,6 +127,7 @@ public class DentalRecords {
             if (justNames[o].equals(familyMember)) {
                 System.out.print("Which tooth layer (U)pper or (L)ower       : ");
                 upperOrLower = keyboard.next();
+                upperOrLower = upperOrLower.toUpperCase();
                 switch (upperOrLower) {
                     case "U":
                         System.out.print("Which tooth number      : ");
@@ -159,6 +162,7 @@ public class DentalRecords {
                     default:
                         System.out.print("Invalid layer, try again        : ");
                         upperOrLower = keyboard.next();
+                        upperOrLower = upperOrLower.toUpperCase();
 
                 }
 
