@@ -74,7 +74,6 @@ public class DentalRecords {
                     break;
             }
         } while (!menuChoice.equals("X"));
-
     }
 
     //----------------------------------------------------------------------------------
