@@ -20,30 +20,34 @@ public class DentalRecords {
                 numPeopleInFamily = keyboard.nextInt();
             } while (numPeopleInFamily <= 0 || numPeopleInFamily > 6);
         }
-
+        String [] justNames = new String [numPeopleInFamily];
         String[][][] familyToothInfo = new String[numPeopleInFamily][2][8];
 
-        for (int i = 0; i < familyToothInfo.length; ++i) {
+        for (int i = 0; i < justNames.length; ++i) {
             System.out.print("Please enter the name for family member " + (i + 1) + "   : ");
-            familyToothInfo[i] = keyboard.nextLine();
-            System.out.print(familyToothInfo[i]);
+            justNames[i] = keyboard.nextLine();
+        }
+            System.out.print("\n");
 
+            for (int i = 0; i < justNames.length; ++i){
             for (int j = 0; j < familyToothInfo[i].length; ++j) {
-                String typeTeeth;
+                String typeTeethUpper = null;
+                String typeTeethLower = null;
 
                 if (j < 1) {
-                    System.out.print("Please enter the uppers for " + familyToothInfo[i] + "  : ");
-                    typeTeeth = keyboard.nextLine();
+                    System.out.print("Please enter the uppers for " + justNames[i] + "  : ");
+                    typeTeethUpper = keyboard.nextLine();
                 } else {
-                    System.out.print("Please enter the lowers for " + familyToothInfo[i] + "  : ");
-                    typeTeeth = keyboard.nextLine();
+                    System.out.print("Please enter the lowers for " + justNames[i] + "  : ");
+                    typeTeethLower = keyboard.nextLine();
                 }
 
                 for (int k = 0; k < 8; ++k) {
-                    familyToothInfo[i][j][k] = String.valueOf(typeTeeth.charAt(k));
+                    familyToothInfo[i][0][k] = String.valueOf(typeTeethUpper.charAt(k));
+                    familyToothInfo[i][1][k] = String.valueOf(typeTeethLower.charAt(k));
                 }
-            }
-        }
+            }}
+
 
         String menuChoice;
 
@@ -53,7 +57,7 @@ public class DentalRecords {
 
         switch (menuChoice) {
             case "P":
-                printChoice(familyToothInfo);
+                printChoice(familyToothInfo, justNames);
                 break;
             case "E":
                 familyToothInfo = extractChoice(familyToothInfo);
@@ -72,10 +76,11 @@ public class DentalRecords {
             System.out.print("\n");
             System.out.print("(P)rint, (E)xtract, (R)oot, e(X)it");
             menuChoice = keyboard.nextLine();
+            System.out.print("\n");
 
             switch (menuChoice) {
                 case "P":
-                    printChoice(familyToothInfo);
+                    printChoice(familyToothInfo, justNames);
                     break;
                 case "E":
                     extractChoice(familyToothInfo);
@@ -94,14 +99,14 @@ public class DentalRecords {
     }
 
     //----------------------------------------------------------------------------------
-    private static void printChoice(String[][][] familyTeethInfo) {
+    private static void printChoice(String[][][] familyTeethInfo, String [] justNames) {
 
         //--Name
         //--Uppers: 1:_ 2:_ ex
         //--Lowers: 1:_ 2:_ ex
 
         for (int l = 0; l < familyTeethInfo.length; ++l) {
-            System.out.println(familyTeethInfo[l]);
+            System.out.println(justNames[l]);
             for (int m = 0; m < familyTeethInfo[l].length; ++m) {
                 if (m < 1) {
                     System.out.print("Uppers: ");
@@ -179,22 +184,43 @@ public class DentalRecords {
         //----------------------------------------------------------------------------------
         private static void rootChoice (String[][][]familyTeethInfo){
 
-            int numOfIs;
-            int numOfBs;
-            int numOfMs;
+            int numOfIs = 0;
+            int numOfBs = 0;
+            int numOfMs = 0;
+            double familyRootPositive;
+            double familyRootNegative;
+            String valueAtTooth;
 
 
             for (int p = 0; p < familyTeethInfo.length; ++p){
-            
-        }
+                for (int q = 0; q < familyTeethInfo[p].length; ++q){
+                    for(int r = 0; r < familyTeethInfo[p][q].length; ++r){
+                         valueAtTooth = familyTeethInfo[p][q][r];
+                         switch (valueAtTooth){
+                             case "B":
+                                 numOfBs += 1;
+                                 break;
+                             case "I":
+                                 numOfIs += 1;
+                                 break;
+                             case "M":
+                                 numOfMs += 1;
+                         }
+
+                        }
+                    }
+                }
+            familyRootPositive = (-(numOfBs) + Math.sqrt(Math.pow(numOfBs, 2) - (4 * numOfIs * numOfMs))) / (2 * numOfIs);
+            familyRootNegative = (-(numOfBs) - Math.sqrt(Math.pow(numOfBs, 2) - (4 * numOfIs * numOfMs))) / (2 * numOfIs);
+
+            System.out.println("One root canal at     " + familyRootPositive);
+            System.out.println("Another root canal at " + familyRootNegative);
+    }
+    //----------------------------------------------------------------------------------
+    }
 
 
-        }
 
-        //----------------------------------------------------------------------------------
-
-
-}
 
 
 
