@@ -135,18 +135,14 @@ public class DentalRecords {
                 familyMember = keyboard.next();
             }
         } while (foundName = false);
+
         int w = 0;
 
-        if (foundName = true) {
-            do {
-                w = w + 1;
-                foundName = justNames[w].equals(familyMember);
-            } while (foundName == false && w < justNames.length);
-        } else {
-            w = 0;
+        if (!justNames[w].equals(familyMember)){
+            do{
+                w += 1;
+            }while (justNames[w].equals(familyMember));
         }
-
-        
 
         if (justNames[w].equals(familyMember)) {
             System.out.print("Which tooth layer (U)pper or (L)ower       : ");
@@ -160,8 +156,12 @@ public class DentalRecords {
                     if (toothNumber < 8 && toothNumber > 0) {
                         if (!familyTeethInfo[w][0][toothNumber - 1].equals("M")) {
                             familyTeethInfo[w][0][toothNumber - 1] = "M";
-                        } else {
-                            System.out.print("Missing tooth, try again      : ");
+                        }
+                        if (familyTeethInfo[w][0][toothNumber - 1].equals("M")){
+                            do {
+                                System.out.print("Missing tooth, try again      : ");
+                                toothNumber = keyboard.nextInt();
+                            } while (familyTeethInfo[w][0][toothNumber - 1].equals("M"));
                         }
                     } else {
                         System.out.print("Invalid tooth number, try again    :");
