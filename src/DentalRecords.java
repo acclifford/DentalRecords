@@ -153,6 +153,12 @@ public class DentalRecords {
                     System.out.print("Which tooth number      : ");
                     toothNumber = keyboard.nextInt();
 
+                    if (toothNumber >8 || toothNumber <0){
+                        do{
+                            System.out.print("Invalid tooth number, try again       : ");
+                            toothNumber = keyboard.nextInt();
+                        }while (toothNumber >8 || toothNumber <0);
+                    }
                     if (toothNumber < 8 && toothNumber > 0) {
                         if (!familyTeethInfo[w][0][toothNumber - 1].equals("M")) {
                             familyTeethInfo[w][0][toothNumber - 1] = "M";
@@ -176,9 +182,13 @@ public class DentalRecords {
                     if (toothNumber < 8 && toothNumber > 0) {
                         if (!familyTeethInfo[w][1][toothNumber - 1].equals("M")) {
                             familyTeethInfo[w][1][toothNumber - 1] = "M";
-                        } else  {
-                            System.out.print("Missing tooth, try again      : ");
-                            toothNumber = keyboard.nextInt();
+                        }
+                        if (familyTeethInfo[w][1][toothNumber - 1].equals("M")){
+                            do {
+                                System.out.print("Missing tooth, try again      : ");
+                                toothNumber = keyboard.nextInt();
+                            } while (familyTeethInfo[w][1][toothNumber - 1].equals("M"));
+                            familyTeethInfo[w][1][toothNumber - 1] = "M";
                         }
                     } else {
                         System.out.print("Invalid tooth number, try again    :");
