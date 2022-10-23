@@ -52,7 +52,8 @@ public class DentalRecords {
 
             }
 
-            familyToothInfo[t][1] = new String[typeTeethUpper.length()];
+            familyToothInfo[t][0] = new String[typeTeethUpper.length()];
+
 
             System.out.print("Please enter the lowers for " + justNames[t] + "  : ");
             typeTeethLower = keyboard.next();
@@ -65,14 +66,13 @@ public class DentalRecords {
                 } while (typeTeethLower.length() > 8);
 
 
-                familyToothInfo[t][2] = new String[typeTeethLower.length()];
+                familyToothInfo[t][1] = new String[typeTeethLower.length()];
 
                 for (int k = 0; k < familyToothInfo[t][0].length; ++k) {
                     familyToothInfo[t][0][k] = String.valueOf(typeTeethUpper.charAt(k));
                 }
                 for (int k = 0; k < familyToothInfo[t][1].length; ++k) {
                     familyToothInfo[t][1][k] = String.valueOf(typeTeethLower.charAt(k));
-
                 }
             }
 
@@ -123,7 +123,7 @@ public class DentalRecords {
             System.out.print("\n");
             System.out.print("   Lowers: ");
 
-            for (int n = 0; n < familyTeethInfo[l][0].length; ++n) {
+            for (int n = 0; n < familyTeethInfo[l][1].length; ++n) {
                 System.out.print("  " + (n + 1) + ":" + familyTeethInfo[l][1][n]);
             }
             System.out.print("\n");
