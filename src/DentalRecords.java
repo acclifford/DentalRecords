@@ -25,12 +25,12 @@ public class DentalRecords {
 
         for (int i = 0; i < justNames.length; ++i) {
             System.out.print("Please enter the name for family member " + (i + 1) + "   : ");
-            justNames[i] = keyboard.nextLine();
+            justNames[i] = keyboard.next();
         }
             System.out.print("\n");
 
             for (int i = 0; i < justNames.length; ++i){
-            for (int j = 0; j < familyToothInfo[i].length; ++j) {
+
                 String typeTeethUpper = null;
                 String typeTeethLower = null;
 
@@ -45,16 +45,14 @@ public class DentalRecords {
                     familyToothInfo[i][0][k] = String.valueOf(typeTeethUpper.charAt(k));
                     familyToothInfo[i][1][k] = String.valueOf(typeTeethLower.charAt(k));
                 }
-            }}
-
+            }
 
         String menuChoice;
 
-
         do {
             System.out.print("\n");
-            System.out.print("(P)rint, (E)xtract, (R)oot, e(X)it");
-            menuChoice = keyboard.nextLine();
+            System.out.print("(P)rint, (E)xtract, (R)oot, e(X)it : ");
+            menuChoice = keyboard.next();
             System.out.print("\n");
 
             switch (menuChoice) {
@@ -72,8 +70,10 @@ public class DentalRecords {
                     break;
                 default:
                     System.out.println("Invalid menu option, try again : ");
+                    menuChoice = keyboard.next();
+                    break;
             }
-        } while (menuChoice != "X");
+        } while (!menuChoice.equals("X"));
 
     }
 
@@ -86,20 +86,20 @@ public class DentalRecords {
 
         for (int l = 0; l < familyTeethInfo.length; ++l) {
             System.out.println(justNames[l]);
-            for (int m = 0; m < familyTeethInfo[l].length; ++m) {
+
 
                     System.out.print("   Uppers: ");
-                    for (int n = 0; n < familyTeethInfo[l][m].length; ++n) {
-                        System.out.print("  " + (n + 1) + ":" + familyTeethInfo[l][m][n]);
+                    for (int n = 0; n < familyTeethInfo[l][0].length; ++n) {
+                        System.out.print("  " + (n + 1) + ":" + familyTeethInfo[l][0][n]);
                     }
                     System.out.print("\n");
                     System.out.print("   Lowers: ");
 
-                for (int n = 0; n < familyTeethInfo[l][m].length; ++n) {
-                    System.out.print("  " + (n + 1) + ":" + familyTeethInfo[l][m][n]);
+                for (int n = 0; n < familyTeethInfo[l][0].length; ++n) {
+                    System.out.print("  " + (n + 1) + ":" + familyTeethInfo[l][0][n]);
                 }
             }
-        }
+
     }
 
     //----------------------------------------------------------------------------------
