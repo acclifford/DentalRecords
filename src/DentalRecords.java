@@ -34,13 +34,12 @@ public class DentalRecords {
                 String typeTeethUpper = null;
                 String typeTeethLower = null;
 
-                if (j < 1) {
+
                     System.out.print("Please enter the uppers for " + justNames[i] + "  : ");
-                    typeTeethUpper = keyboard.nextLine();
-                } else {
+                    typeTeethUpper = keyboard.next();
+
                     System.out.print("Please enter the lowers for " + justNames[i] + "  : ");
-                    typeTeethLower = keyboard.nextLine();
-                }
+                    typeTeethLower = keyboard.next();
 
                 for (int k = 0; k < 8; ++k) {
                     familyToothInfo[i][0][k] = String.valueOf(typeTeethUpper.charAt(k));
@@ -51,26 +50,6 @@ public class DentalRecords {
 
         String menuChoice;
 
-        System.out.print("\n");
-        System.out.print("(P)rint, (E)xtract, (R)oot, e(X)it");
-        menuChoice = keyboard.nextLine();
-
-        switch (menuChoice) {
-            case "P":
-                printChoice(familyToothInfo, justNames);
-                break;
-            case "E":
-                familyToothInfo = extractChoice(familyToothInfo);
-                break;
-            case "R":
-                rootChoice(familyToothInfo);
-                break;
-            case "X":
-                System.out.println("Exiting the Floridian Tooth Records :-)");
-                break;
-            default:
-                System.out.println("Invalid menu option, try again : ");
-        }
 
         do {
             System.out.print("\n");
@@ -83,7 +62,7 @@ public class DentalRecords {
                     printChoice(familyToothInfo, justNames);
                     break;
                 case "E":
-                    extractChoice(familyToothInfo);
+                    extractChoice(familyToothInfo, justNames);
                     break;
                 case "R":
                     rootChoice(familyToothInfo);
@@ -108,33 +87,36 @@ public class DentalRecords {
         for (int l = 0; l < familyTeethInfo.length; ++l) {
             System.out.println(justNames[l]);
             for (int m = 0; m < familyTeethInfo[l].length; ++m) {
-                if (m < 1) {
-                    System.out.print("Uppers: ");
+
+                    System.out.print("   Uppers: ");
                     for (int n = 0; n < familyTeethInfo[l][m].length; ++n) {
-                        System.out.print("  " + (n + 1) + familyTeethInfo[l][m][n]);
+                        System.out.print("  " + (n + 1) + ":" + familyTeethInfo[l][m][n]);
                     }
-                } else {
-                    System.out.print("Lowers: ");
-                }
+                    System.out.print("\n");
+                    System.out.print("   Lowers: ");
+
                 for (int n = 0; n < familyTeethInfo[l][m].length; ++n) {
-                    System.out.print("  " + (n + 1) + familyTeethInfo[l][m][n]);
+                    System.out.print("  " + (n + 1) + ":" + familyTeethInfo[l][m][n]);
                 }
             }
         }
     }
 
     //----------------------------------------------------------------------------------
-    private static String[][][] extractChoice(String[][][] familyTeethInfo) {
+    private static String[][][] extractChoice(String[][][] familyTeethInfo, String[] justNames) {
 
         String familyMember;
         String upperOrLower;
         int toothNumber;
 
         System.out.print("Which family member                 :");
-        familyMember = keyboard.nextLine();
+        familyMember = keyboard.next();
+        for (int x = 0; x < justNames.length; ++x){
+            if (justNames[x].equals(familyMember)){
+
 
         for (int o = 0; o < familyTeethInfo.length; ++o) {
-            if (familyTeethInfo[o].equals(familyMember)) {
+            if (justNames[o].equals(familyMember)) {
                 System.out.print("Which tooth layer (U)pper or (L)ower       : ");
                 upperOrLower = keyboard.next();
                 switch (upperOrLower) {
@@ -176,7 +158,7 @@ public class DentalRecords {
 
             } else {
                 System.out.print("Invalid family member, try again              : ");
-            }
+            }}}
 
         }
         return(familyTeethInfo);
