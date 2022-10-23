@@ -27,7 +27,8 @@ public class DentalRecords {
             System.out.print("Please enter the name for family member " + (t + 1) + "   : ");
             String familyMemberName = keyboard.next();
             familyMemberName = familyMemberName.toLowerCase();
-            familyMemberName = familyMemberName.substring(0, 1).toUpperCase();
+            String firstLetter = familyMemberName.substring(0,1).toUpperCase();
+            familyMemberName = firstLetter + familyMemberName;
             justNames[t] = familyMemberName;
 
             System.out.print("\n");
@@ -116,7 +117,8 @@ public class DentalRecords {
         System.out.print("Which family member                 : ");
         familyMember = keyboard.next();
         familyMember = familyMember.toLowerCase();
-        familyMember = familyMember.substring(0, 1).toUpperCase();
+        String firstLetter = familyMember.substring(0,1).toUpperCase();
+        familyMember = firstLetter + familyMember;
 
 
         for (int x = 0; x < justNames.length; ++x){
