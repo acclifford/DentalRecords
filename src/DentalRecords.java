@@ -162,6 +162,7 @@ public class DentalRecords {
                                 System.out.print("Missing tooth, try again      : ");
                                 toothNumber = keyboard.nextInt();
                             } while (familyTeethInfo[w][0][toothNumber - 1].equals("M"));
+                            familyTeethInfo[w][0][toothNumber - 1] = "M";
                         }
                     } else {
                         System.out.print("Invalid tooth number, try again    :");
