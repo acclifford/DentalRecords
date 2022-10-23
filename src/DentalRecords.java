@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class DentalRecords {
@@ -123,21 +124,29 @@ public class DentalRecords {
         String remainingLetters = familyMember.substring(1);
         familyMember = firstLetter + remainingLetters;
 
-        int w = 0;
         boolean foundName;
-        if (!justNames[w].equals(familyMember)) {
+
+        do {
+            if (Arrays.stream(justNames).anyMatch(familyMember::equals)) {
+                foundName = true;
+            } else {
+                foundName = false;
+                System.out.print("Invalid family member, try again   : " );
+                familyMember = keyboard.next();
+            }
+        } while (foundName = false);
+        int w = 0;
+
+        if (foundName = true) {
             do {
                 w = w + 1;
                 foundName = justNames[w].equals(familyMember);
             } while (foundName == false && w < justNames.length);
-        } else if (justNames[w].equals(familyMember)){
+        } else {
             w = 0;
         }
-        else {
-            System.out.print("Invalid family member, try again  : ");
-            familyMember = keyboard.next();
 
-        }
+        
 
         if (justNames[w].equals(familyMember)) {
             System.out.print("Which tooth layer (U)pper or (L)ower       : ");
@@ -168,6 +177,7 @@ public class DentalRecords {
                             familyTeethInfo[w][1][toothNumber - 1] = "M";
                         } else  {
                             System.out.print("Missing tooth, try again      : ");
+                            toothNumber = keyboard.nextInt();
                         }
                     } else {
                         System.out.print("Invalid tooth number, try again    :");
