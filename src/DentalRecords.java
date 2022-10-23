@@ -130,8 +130,13 @@ public class DentalRecords {
                 w = w + 1;
                 foundName = justNames[w].equals(familyMember);
             } while (foundName == false && w < justNames.length);
-        } else {
+        } else if (justNames[w].equals(familyMember)){
             w = 0;
+        }
+        else {
+            System.out.print("Invalid family member, try again  : ");
+            familyMember = keyboard.next();
+
         }
 
         if (justNames[w].equals(familyMember)) {
@@ -144,7 +149,7 @@ public class DentalRecords {
                     toothNumber = keyboard.nextInt();
 
                     if (toothNumber < 8 && toothNumber > 0) {
-                        if (familyTeethInfo[w][0][toothNumber - 1] != "M" || familyTeethInfo[w][0][toothNumber] != null) {
+                        if (!familyTeethInfo[w][0][toothNumber - 1].equals("M")) {
                             familyTeethInfo[w][0][toothNumber - 1] = "M";
                         } else {
                             System.out.print("Missing tooth, try again      : ");
@@ -159,9 +164,9 @@ public class DentalRecords {
                     toothNumber = keyboard.nextInt();
 
                     if (toothNumber < 8 && toothNumber > 0) {
-                        if (familyTeethInfo[w][1][toothNumber - 1] != "M" || familyTeethInfo[w][1][toothNumber] != null) {
+                        if (!familyTeethInfo[w][1][toothNumber - 1].equals("M")) {
                             familyTeethInfo[w][1][toothNumber - 1] = "M";
-                        } else {
+                        } else  {
                             System.out.print("Missing tooth, try again      : ");
                         }
                     } else {
@@ -176,8 +181,7 @@ public class DentalRecords {
 
             }
 
-        } else {
-            System.out.print("Invalid family member, try again              : ");
+
 
         }
         return (familyTeethInfo);
