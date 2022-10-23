@@ -28,7 +28,8 @@ public class DentalRecords {
             String familyMemberName = keyboard.next();
             familyMemberName = familyMemberName.toLowerCase();
             String firstLetter = familyMemberName.substring(0,1).toUpperCase();
-            familyMemberName = firstLetter + familyMemberName;
+            String remainingLetters = familyMemberName.substring(1);
+            familyMemberName = firstLetter + remainingLetters;
             justNames[t] = familyMemberName;
 
             System.out.print("\n");
@@ -59,6 +60,7 @@ public class DentalRecords {
             System.out.print("\n");
             System.out.print("(P)rint, (E)xtract, (R)oot, e(X)it : ");
             menuChoice = keyboard.next();
+            menuChoice = menuChoice.toUpperCase();
             System.out.print("\n");
 
             switch (menuChoice) {
@@ -118,7 +120,8 @@ public class DentalRecords {
         familyMember = keyboard.next();
         familyMember = familyMember.toLowerCase();
         String firstLetter = familyMember.substring(0,1).toUpperCase();
-        familyMember = firstLetter + familyMember;
+        String remainingLetters = familyMember.substring(1);
+        familyMember = firstLetter + remainingLetters;
 
 
         for (int x = 0; x < justNames.length; ++x){
