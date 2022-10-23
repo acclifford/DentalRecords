@@ -76,6 +76,7 @@ public class DentalRecords {
                 }
             }
 
+
             String menuChoice;
 
             do {
