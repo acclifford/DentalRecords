@@ -22,7 +22,7 @@ public class DentalRecords {
             } while (numPeopleInFamily <= 0 || numPeopleInFamily > 6);
         }
         String[] justNames = new String[numPeopleInFamily];
-        String[][][] familyToothInfo = new String[numPeopleInFamily][2][8];
+        String[][][] familyToothInfo = new String[numPeopleInFamily][2][];
 
         for (int t = 0; t < justNames.length; ++t) {
             System.out.print("Please enter the name for family member " + (t + 1) + "   : ");
@@ -44,46 +44,67 @@ public class DentalRecords {
             typeTeethUpper = keyboard.next();
             typeTeethUpper = typeTeethUpper.toUpperCase();
 
+            if (typeTeethUpper.length() > 8) {
+                do {
+                    System.out.print("Too many teeth, try again  : ");
+                    typeTeethUpper = keyboard.next();
+                } while (typeTeethUpper.length() > 8);
+
+            }
+
+            familyToothInfo[t][1] = new String[typeTeethUpper.length()];
+
             System.out.print("Please enter the lowers for " + justNames[t] + "  : ");
             typeTeethLower = keyboard.next();
             typeTeethLower = typeTeethLower.toUpperCase();
 
-            for (int k = 0; k < 8; ++k) {
-                familyToothInfo[t][0][k] = String.valueOf(typeTeethUpper.charAt(k));
-                familyToothInfo[t][1][k] = String.valueOf(typeTeethLower.charAt(k));
+            if (typeTeethLower.length() > 8) {
+                do {
+                    System.out.print("Too many teeth, try again  : ");
+                    typeTeethLower = keyboard.next();
+                } while (typeTeethLower.length() > 8);
 
+
+                familyToothInfo[t][2] = new String[typeTeethLower.length()];
+
+                for (int k = 0; k < familyToothInfo[t][0].length; ++k) {
+                    familyToothInfo[t][0][k] = String.valueOf(typeTeethUpper.charAt(k));
+                }
+                for (int k = 0; k < familyToothInfo[t][1].length; ++k) {
+                    familyToothInfo[t][1][k] = String.valueOf(typeTeethLower.charAt(k));
+
+                }
             }
+
+            String menuChoice;
+
+            do {
+                System.out.print("\n");
+                System.out.print("(P)rint, (E)xtract, (R)oot, e(X)it : ");
+                menuChoice = keyboard.next();
+                menuChoice = menuChoice.toUpperCase();
+                System.out.print("\n");
+
+                switch (menuChoice) {
+                    case "P":
+                        printChoice(familyToothInfo, justNames);
+                        break;
+                    case "E":
+                        extractChoice(familyToothInfo, justNames);
+                        break;
+                    case "R":
+                        rootChoice(familyToothInfo);
+                        break;
+                    case "X":
+                        System.out.println("Exiting the Floridian Tooth Records :-)");
+                        break;
+                    default:
+                        System.out.print("Invalid menu option, try again");
+                        break;
+                }
+            } while (!menuChoice.equals("X"));
         }
-
-        String menuChoice;
-
-        do {
-            System.out.print("\n");
-            System.out.print("(P)rint, (E)xtract, (R)oot, e(X)it : ");
-            menuChoice = keyboard.next();
-            menuChoice = menuChoice.toUpperCase();
-            System.out.print("\n");
-
-            switch (menuChoice) {
-                case "P":
-                    printChoice(familyToothInfo, justNames);
-                    break;
-                case "E":
-                    extractChoice(familyToothInfo, justNames);
-                    break;
-                case "R":
-                    rootChoice(familyToothInfo);
-                    break;
-                case "X":
-                    System.out.println("Exiting the Floridian Tooth Records :-)");
-                    break;
-                default:
-                    System.out.print("Invalid menu option, try again");
-                    break;
-            }
-        } while (!menuChoice.equals("X"));
     }
-
     //----------------------------------------------------------------------------------
     private static void printChoice(String[][][] familyTeethInfo, String[] justNames) {
 
@@ -160,24 +181,27 @@ public class DentalRecords {
                         }while (toothNumber >8 || toothNumber <0);
                     }
                     if (toothNumber < 8 && toothNumber > 0) {
-                        if (!familyTeethInfo[w][0][toothNumber - 1].equals("M")) {
-                            familyTeethInfo[w][0][toothNumber - 1] = "M";
+                        if (!familyTeethInfo[w][0][toothNumber -1].equals("M")) {
+                            familyTeethInfo[w][0][toothNumber -1] = "M";
                         }
-                        if (familyTeethInfo[w][0][toothNumber - 1].equals("M")){
+                        if (familyTeethInfo[w][0][toothNumber -1].equals("M")){
                             do {
                                 System.out.print("Missing tooth, try again      : ");
                                 toothNumber = keyboard.nextInt();
-                            } while (familyTeethInfo[w][0][toothNumber - 1].equals("M"));
-                            familyTeethInfo[w][0][toothNumber - 1] = "M";
+                            } while (familyTeethInfo[w][0][toothNumber-1 ].equals("M"));
+                            familyTeethInfo[w][0][toothNumber -1] = "M";
                         }
-                    } else {
-                        System.out.print("Invalid tooth number, try again    :");
-                        toothNumber = keyboard.nextInt();
                     }
                     break;
                 case "L":
                     System.out.print("Which tooth number      : ");
                     toothNumber = keyboard.nextInt();
+
+                    if (toothNumber >8 || toothNumber <0){
+                        do{
+                            System.out.print("Invalid tooth number, try again       : ");
+                            toothNumber = keyboard.nextInt();
+                        }while (toothNumber >8 || toothNumber <0);
 
                     if (toothNumber < 8 && toothNumber > 0) {
                         if (!familyTeethInfo[w][1][toothNumber - 1].equals("M")) {
@@ -190,15 +214,14 @@ public class DentalRecords {
                             } while (familyTeethInfo[w][1][toothNumber - 1].equals("M"));
                             familyTeethInfo[w][1][toothNumber - 1] = "M";
                         }
-                    } else {
-                        System.out.print("Invalid tooth number, try again    :");
-                        toothNumber = keyboard.nextInt();
+                    }
                     }
                     break;
                 default:
                     System.out.print("Invalid layer, try again        : ");
                     upperOrLower = keyboard.next();
                     upperOrLower = upperOrLower.toUpperCase();
+                    break;
 
             }
 
