@@ -263,15 +263,16 @@ public class DentalRecords {
                         }while (toothNumber >8 || toothNumber <0);
 
                     if (toothNumber < 8 && toothNumber > 0) {
-                        if (!familyTeethInfo[w][1][toothNumber - 1].equals("M")) {
-                            familyTeethInfo[w][1][toothNumber-1] = "M";
-                        }
+
                         if (familyTeethInfo[w][1][toothNumber - 1].equals("M")){
                             do {
                                 System.out.print("Missing tooth, try again      : ");
                                 toothNumber = keyboard.nextInt();
                             } while (familyTeethInfo[w][1][toothNumber - 1].equals("M"));
                             familyTeethInfo[w][1][toothNumber - 1] = "M";
+                        }
+                        if (!familyTeethInfo[w][1][toothNumber - 1].equals("M")) {
+                            familyTeethInfo[w][1][toothNumber-1] = "M";
                         }
                     }
                     }
