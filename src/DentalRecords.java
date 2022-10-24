@@ -45,12 +45,12 @@ public class DentalRecords {
             typeTeethUpper = typeTeethUpper.toUpperCase();
 
             int a = 0;
-            if (!typeTeethUpper.matches("[bimBIM]")){
+            if (typeTeethUpper.matches("[bimBIM]")){
                 do {
                     System.out.print("Invalid teeth types, try again   : ");
                     typeTeethUpper = keyboard.next();
                 }
-                while (!typeTeethUpper.matches("[bimBIM]"));
+                while (typeTeethUpper.matches("[bimBIM]"));
             }
 
 
@@ -70,12 +70,12 @@ public class DentalRecords {
             typeTeethLower = keyboard.next();
             typeTeethLower = typeTeethLower.toUpperCase();
 
-            if (!typeTeethLower.matches("[bimBIM]")) {
+            if (typeTeethLower.matches("[bimBIM]")) {
                 do {
                     System.out.print("Invalid teeth types, try again   : ");
                     typeTeethLower = keyboard.next();
                 }
-                while (!typeTeethLower.matches("[bimBIM]"));
+                while (typeTeethLower.matches("[bimBIM]"));
             }
 
             if (typeTeethLower.length() > 8) {
