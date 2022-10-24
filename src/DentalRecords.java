@@ -261,13 +261,13 @@ public class DentalRecords {
 
             //--if the user selects upper, the data will be taken through this loop
             if (upperOrLower.equals("U")) {
-                System.out.print("Which tooth number      : ");
+                System.out.print("Which tooth number : ");
                 toothNumber = keyboard.nextInt();
 
                 //--if the tooth number selected doesn't exist, the user will be prompted to enter again
                 if (toothNumber > familyTeethInfo[w][0].length || toothNumber < 0) {
                     do {
-                        System.out.print("Invalid tooth number, try again       : ");
+                        System.out.print("Invalid tooth number, try again : ");
                         toothNumber = keyboard.nextInt();
                     } while (toothNumber > 8 || toothNumber < 0);
                 }
@@ -276,7 +276,7 @@ public class DentalRecords {
                     //--if the tooth is already missing, the user will be prompted to enter again
                     if (familyTeethInfo[w][0][toothNumber - 1].equals("M")) {
                         do {
-                            System.out.print("Missing tooth, try again      : ");
+                            System.out.print("Missing tooth, try again  : ");
                             toothNumber = keyboard.nextInt();
                         } while (familyTeethInfo[w][0][toothNumber - 1].equals("M"));
                     }
@@ -289,13 +289,13 @@ public class DentalRecords {
             }
             //--if the user selects lower, the data will be taken through this loop
             if (upperOrLower.equals("L")) {
-                System.out.print("Which tooth number      : ");
+                System.out.print("Which tooth number : ");
                 toothNumber = keyboard.nextInt();
 
                 //--if the tooth number selected doesn't exist, the user will be prompted to enter again
                 if (toothNumber > 8 || toothNumber < 0) {
                     do {
-                        System.out.print("Invalid tooth number, try again       : ");
+                        System.out.print("Invalid tooth number, try again : ");
                         toothNumber = keyboard.nextInt();
                     } while (toothNumber > 8 || toothNumber < 0);
 
@@ -304,7 +304,7 @@ public class DentalRecords {
                         //--if the tooth is already missing, the user will be prompted to enter again
                         if (familyTeethInfo[w][1][toothNumber - 1].equals("M")) {
                             do {
-                                System.out.print("Missing tooth, try again      : ");
+                                System.out.print("Missing tooth, try again : ");
                                 toothNumber = keyboard.nextInt();
                             } while (familyTeethInfo[w][1][toothNumber - 1].equals("M"));
                             familyTeethInfo[w][1][toothNumber - 1] = "M";
