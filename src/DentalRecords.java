@@ -240,14 +240,15 @@ public class DentalRecords {
                         }while (toothNumber >8 || toothNumber <0);
                     }
                     if (toothNumber < familyTeethInfo[w][0].length && toothNumber > 0) {
-                        if (!familyTeethInfo[w][0][toothNumber-1 ].equals("M")) {
-                            familyTeethInfo[w][0][toothNumber -1] = "M";
-                        }
+
                         if (familyTeethInfo[w][0][toothNumber -1].equals("M")){
                             do {
                                 System.out.print("Missing tooth, try again      : ");
                                 toothNumber = keyboard.nextInt();
                             } while (familyTeethInfo[w][0][toothNumber-1 ].equals("M"));
+                        }
+                        if (!familyTeethInfo[w][0][toothNumber-1 ].equals("M")) {
+                            familyTeethInfo[w][0][toothNumber - 1] = "M";
                         }
                     }
                     break;
