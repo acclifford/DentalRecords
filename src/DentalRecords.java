@@ -327,11 +327,19 @@ public class DentalRecords {
                     }
                 }
             }
-            familyRootPositive = (-(numOfBs) + (Math.sqrt(Math.pow(numOfBs, 2) - (4 * numOfIs * numOfMs)))) / (2 * numOfIs);
+            System.out.print("Bs:" + numOfBs +"    Is:"+ numOfIs +"     Ms:" + numOfMs);
+            System.out.print("\n");
+
+            familyRootNegative = ((numOfBs * -1) + (Math.sqrt((Math.pow(numOfBs, 2))) - (4 * numOfIs * numOfMs)) )/ (2 *numOfIs);
+            System.out.println(" Negative Root: " + familyRootNegative);
+            familyRootPositive = ((numOfBs * -1) - (Math.sqrt((Math.pow(numOfBs, 2))) - (4 * numOfIs * numOfMs))) / (2 *numOfIs);
+            System.out.println(" Positive Root: "+ familyRootPositive);
+
+            /*familyRootPositive = (-(numOfBs) + (Math.sqrt(Math.pow(numOfBs, 2) - (4 * numOfIs * numOfMs)))) / (2 * numOfIs);
             familyRootNegative = (-(numOfBs) - (Math.sqrt(Math.pow(numOfBs, 2) - (4 * numOfIs * numOfMs)))) / (2 * numOfIs);
 
             System.out.println("One root canal at     " + familyRootPositive);
-            System.out.println("Another root canal at " + familyRootNegative);
+            System.out.println("Another root canal at " + familyRootNegative);*/
         }
         //----------------------------------------------------------------------------------
     }
