@@ -17,7 +17,7 @@ public class DentalRecords {
 
         if (numPeopleInFamily <= 0 || numPeopleInFamily > 6) {
             do {
-                System.out.print("Invalid number of people, try again   : ");
+                System.out.print("Invalid number of people, try again         : ");
                 numPeopleInFamily = keyboard.nextInt();
             } while (numPeopleInFamily <= 0 || numPeopleInFamily > 6);
         }
@@ -33,14 +33,14 @@ public class DentalRecords {
             familyMemberName = firstLetter + remainingLetters;
             justNames[t] = familyMemberName;
 
-            System.out.print("\n");
+
 
 
             String typeTeethUpper = null;
             String typeTeethLower = null;
 
 
-            System.out.print("Please enter the uppers for " + justNames[t] + "  : ");
+            System.out.print("Please enter the uppers for " + justNames[t] + "           : ");
             typeTeethUpper = keyboard.next();
             typeTeethUpper = typeTeethUpper.toUpperCase();
 
@@ -126,12 +126,25 @@ public class DentalRecords {
 
             String menuChoice;
 
+
             do {
                 System.out.print("\n");
                 System.out.print("(P)rint, (E)xtract, (R)oot, e(X)it : ");
                 menuChoice = keyboard.next();
                 menuChoice = menuChoice.toUpperCase();
                 System.out.print("\n");
+
+                if ((menuChoice.contains("P") || menuChoice.contains("E") || menuChoice.contains("R")
+                        || menuChoice.contains("X"))) {
+                    do{
+                        System.out.print("Invalid menu option, try again   : ");
+                        menuChoice = keyboard.next();
+                        menuChoice = menuChoice.toUpperCase();
+                        System.out.print("\n");
+                    } while ((menuChoice.contains("P") || menuChoice.contains("E") || menuChoice.contains("R")
+                            || menuChoice.contains("X")));
+
+                }
 
                 switch (menuChoice) {
                     case "P":
@@ -147,7 +160,7 @@ public class DentalRecords {
                         System.out.println("Exiting the Floridian Tooth Records :-)");
                         break;
                     default:
-                        System.out.print("Invalid menu option, try again");
+                            System.out.print("Invalid menu option, try again  : ");
                         break;
                 }
             } while (!menuChoice.equals("X"));
