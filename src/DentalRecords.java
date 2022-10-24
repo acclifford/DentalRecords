@@ -44,6 +44,15 @@ public class DentalRecords {
             typeTeethUpper = keyboard.next();
             typeTeethUpper = typeTeethUpper.toUpperCase();
 
+            int a = 0;
+            do{
+                System.out.print("Invalid teeth types, try again   : ");
+                typeTeethUpper = keyboard.next();
+            }
+            while (!typeTeethUpper.matches("[bimBIM]"));
+
+
+
             if (typeTeethUpper.length() > 8) {
                 do {
                     System.out.print("Too many teeth, try again  : ");
@@ -58,6 +67,12 @@ public class DentalRecords {
             System.out.print("Please enter the lowers for " + justNames[t] + "  : ");
             typeTeethLower = keyboard.next();
             typeTeethLower = typeTeethLower.toUpperCase();
+
+            do{
+                System.out.print("Invalid teeth types, try again   : ");
+                typeTeethLower = keyboard.next();
+            }
+            while (!typeTeethLower.matches("[bimBIM]"));
 
             if (typeTeethLower.length() > 8) {
                 do {
@@ -75,7 +90,7 @@ public class DentalRecords {
                     familyToothInfo[t][1][k] = String.valueOf(typeTeethLower.charAt(k));
                 }
             }
-
+        }
 
             String menuChoice;
 
@@ -105,7 +120,7 @@ public class DentalRecords {
                 }
             } while (!menuChoice.equals("X"));
         }
-    }
+
     //----------------------------------------------------------------------------------
     private static void printChoice(String[][][] familyTeethInfo, String[] justNames) {
 
