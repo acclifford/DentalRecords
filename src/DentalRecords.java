@@ -336,7 +336,7 @@ public class DentalRecords {
         private static void rootChoice (String[][][]familyTeethInfo){
 
             //--The rootChoice method calculates the square roots based off the following equation:
-            //-- I^2x + Bx - M
+            //-- Ix^2 + Bx - M
             //--The calculations will produce a positive and negative answer;
 
             int numOfIs = 0;
