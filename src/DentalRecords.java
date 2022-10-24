@@ -315,8 +315,6 @@ public class DentalRecords {
                     }
                 }
             }
-            System.out.print("Bs:" + numOfBs +"    Is:"+ numOfIs +"     Ms:" + numOfMs);
-            System.out.print("\n");
 
             familyRootPositive = ((numOfBs * -1) + (Math.sqrt((Math.pow(numOfBs, 2)) + (4 * numOfIs * numOfMs))) )/ (2 *numOfIs);
             familyRootNegative = ((numOfBs * -1) - (Math.sqrt((Math.pow(numOfBs, 2)) + (4 * numOfIs * numOfMs ))) )/ (2 *numOfIs);
