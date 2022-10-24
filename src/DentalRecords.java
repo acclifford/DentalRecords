@@ -124,12 +124,13 @@ public class DentalRecords {
         String menuChoice;
 
 
-        do {
+        do{
             System.out.print("\n");
             System.out.print("(P)rint, (E)xtract, (R)oot, e(X)it : ");
             menuChoice = keyboard.next();
             menuChoice = menuChoice.toUpperCase();
-            System.out.print("\n");
+
+
 
             if (!(menuChoice.contains("P") || !menuChoice.contains("E") || !menuChoice.contains("R")
                     || !menuChoice.contains("X"))) {
@@ -137,14 +138,25 @@ public class DentalRecords {
                     System.out.print("Invalid menu option, try again   : ");
                     menuChoice = keyboard.next();
                     menuChoice = menuChoice.toUpperCase();
-                    System.out.print("\n");
+
                 } while ((!menuChoice.contains("P") || !menuChoice.contains("E") || !menuChoice.contains("R")
                         || !menuChoice.contains("X")));
 
             }
 
-
-            switch (menuChoice) {
+            if (menuChoice.equals("P")){
+                printChoice(familyToothInfo, justNames);
+            }
+            if (menuChoice.equals("E")){
+                extractChoice(familyToothInfo, justNames);
+            }
+            if(menuChoice.equals("R")){
+                rootChoice(familyToothInfo);
+            }
+            if(menuChoice.equals("X")){
+                System.out.println("Exiting the Floridian Tooth Records :-)");
+            }
+            /*switch (menuChoice) {
                 case "P":
                     printChoice(familyToothInfo, justNames);
                     break;
@@ -157,7 +169,8 @@ public class DentalRecords {
                 case "X":
                     System.out.println("Exiting the Floridian Tooth Records :-)");
                     break;
-            }
+
+        }*/
         } while (!menuChoice.equals("X"));
     }
 
