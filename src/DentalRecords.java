@@ -228,15 +228,6 @@ public class DentalRecords {
             } while(!Arrays.stream(justNames).anyMatch(familyMember::equals));
         }
 
-        /*do {
-            if (Arrays.stream(justNames).anyMatch(familyMember::equals)) {
-                foundName = true;
-            } else {
-                foundName = false;
-                System.out.print("Invalid family member, try again   : ");
-                familyMember = keyboard.next();
-            }
-        } while (foundName = false); */
 
         int w = 0;
 
@@ -250,6 +241,12 @@ public class DentalRecords {
             System.out.print("Which tooth layer (U)pper or (L)ower       : ");
             upperOrLower = keyboard.next();
             upperOrLower = upperOrLower.toUpperCase();
+
+            if (!upperOrLower.equals("U") || !upperOrLower.equals("L")){
+                System.out.print("Invalid layer, try again        : ");
+                upperOrLower = keyboard.next();
+                upperOrLower = upperOrLower.toUpperCase();
+            }
             switch (upperOrLower) {
                 case "U":
                     System.out.print("Which tooth number      : ");
@@ -299,11 +296,6 @@ public class DentalRecords {
                         }
 
                     }
-                    break;
-                default:
-                    System.out.print("Invalid layer, try again        : ");
-                    upperOrLower = keyboard.next();
-                    upperOrLower = upperOrLower.toUpperCase();
                     break;
 
             }
