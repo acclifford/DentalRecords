@@ -55,6 +55,7 @@ public class DentalRecords {
                 do{
                     System.out.print("Invalid teeth types, try again    : ");
                     typeTeethUpper = keyboard.next();
+                    typeTeethUpper = typeTeethUpper.toUpperCase();
                 } while (typeTeethUpper.contains("A") || typeTeethUpper.contains("C") || typeTeethUpper.contains("D")
                         || typeTeethUpper.contains("E") || typeTeethUpper.contains("F") || typeTeethUpper.contains("G") ||
                         typeTeethUpper.contains("H") || typeTeethUpper.contains("J") || typeTeethUpper.contains("K")
@@ -94,6 +95,7 @@ public class DentalRecords {
                 do {
                     System.out.print("Invalid teeth types, try again    : ");
                     typeTeethLower = keyboard.next();
+                    typeTeethLower = typeTeethUpper.toUpperCase();
                 } while (typeTeethLower.contains("A") || typeTeethLower.contains("C") || typeTeethLower.contains("D")
                         || typeTeethLower.contains("E") || typeTeethLower.contains("F") || typeTeethLower.contains("G") ||
                         typeTeethLower.contains("H") || typeTeethLower.contains("J") || typeTeethLower.contains("K")
