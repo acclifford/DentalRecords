@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class DentalRecords {
     //----------------------------------------------------------------------------------
     private static Scanner keyboard = new Scanner(System.in);
+    private static final double MAX_ARRAY_NAMES_LENGTH = 6;
+    private static final double MAX_ARRAY_TEETH_LENGTH = 8;
 
     //----------------------------------------------------------------------------------
     public static void main(String[] args) {
@@ -17,11 +19,11 @@ public class DentalRecords {
         numPeopleInFamily = keyboard.nextInt();
 
         //--This loop causes the user to be forced to input a number within the domains
-        if (numPeopleInFamily <= 0 || numPeopleInFamily > 6) {
+        if (numPeopleInFamily <= 0 || numPeopleInFamily > MAX_ARRAY_NAMES_LENGTH) {
             do {
                 System.out.print("Invalid number of people, try again : ");
                 numPeopleInFamily = keyboard.nextInt();
-            } while (numPeopleInFamily <= 0 || numPeopleInFamily > 6);
+            } while (numPeopleInFamily <= 0 || numPeopleInFamily > MAX_ARRAY_NAMES_LENGTH);
         }
 
         //--I created two array, one 1D array to hold the names, and a 3D array for the teeth data
@@ -73,11 +75,11 @@ public class DentalRecords {
             }
 
             //--This loop prevents the user from inputting more than 8 values for teeth
-            if (typeTeethUpper.length() > 8) {
+            if (typeTeethUpper.length() > MAX_ARRAY_TEETH_LENGTH) {
                 do {
                     System.out.print("Too many teeth, try again : ");
                     typeTeethUpper = keyboard.next();
-                } while (typeTeethUpper.length() > 8);
+                } while (typeTeethUpper.length() > MAX_ARRAY_TEETH_LENGTH);
 
             }
 
@@ -123,7 +125,7 @@ public class DentalRecords {
                 do {
                     System.out.print("Too many teeth, try again : ");
                     typeTeethLower = keyboard.next();
-                } while (typeTeethLower.length() > 8);
+                } while (typeTeethLower.length() > MAX_ARRAY_TEETH_LENGTH);
             }
 
             //--This line initializes the size of the final portion of the array
@@ -356,7 +358,7 @@ public class DentalRecords {
                 }
             }
 
-            //--Using the found totals, we can calcualtes the two roots of the equation
+            //--Using the found totals, we can calculate the two roots of the equation
             familyRootPositive = ((numOfBs * -1) + (Math.sqrt((Math.pow(numOfBs, 2)) + (4 * numOfIs * numOfMs))) )/ (2 *numOfIs);
             familyRootNegative = ((numOfBs * -1) - (Math.sqrt((Math.pow(numOfBs, 2)) + (4 * numOfIs * numOfMs ))) )/ (2 *numOfIs);
 
