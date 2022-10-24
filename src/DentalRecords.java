@@ -258,74 +258,75 @@ public class DentalRecords {
             upperOrLower = keyboard.next();
             upperOrLower = upperOrLower.toUpperCase();
 
-                //--this loop sets off if a layer that doesn't exist is selected
-                do{
+            //--this loop sets off if a layer that doesn't exist is selected
+                /*do{
                 System.out.print("Invalid layer, try again : ");
                 upperOrLower = keyboard.next();
                 upperOrLower = upperOrLower.toUpperCase();
             } while (!upperOrLower.contains("L") || !upperOrLower.contains("U"));
+            */
 
-        }
 
-        //--if the user selects upper, the data will be taken through this loop
-        if (upperOrLower.equals("U")) {
-            System.out.print("Which tooth number      : ");
-            toothNumber = keyboard.nextInt();
+            //--if the user selects upper, the data will be taken through this loop
+            if (upperOrLower.equals("U")) {
+                System.out.print("Which tooth number      : ");
+                toothNumber = keyboard.nextInt();
 
-            //--if the tooth number selected doesn't exist, the user will be prompted to enter again
-            if (toothNumber > familyTeethInfo[w][0].length || toothNumber < 0) {
-                do {
-                    System.out.print("Invalid tooth number, try again       : ");
-                    toothNumber = keyboard.nextInt();
-                } while (toothNumber > 8 || toothNumber < 0);
-            }
-            if (toothNumber < familyTeethInfo[w][0].length && toothNumber > 0) {
-
-                //--if the tooth is already missing, the user will be prompted to enter again
-                if (familyTeethInfo[w][0][toothNumber - 1].equals("M")) {
+                //--if the tooth number selected doesn't exist, the user will be prompted to enter again
+                if (toothNumber > familyTeethInfo[w][0].length || toothNumber < 0) {
                     do {
-                        System.out.print("Missing tooth, try again      : ");
+                        System.out.print("Invalid tooth number, try again       : ");
                         toothNumber = keyboard.nextInt();
-                    } while (familyTeethInfo[w][0][toothNumber - 1].equals("M"));
+                    } while (toothNumber > 8 || toothNumber < 0);
                 }
-
-                //--if the tooth is not missing, it is extracted
-                if (!familyTeethInfo[w][0][toothNumber - 1].equals("M")){
-                    familyTeethInfo[w][0][toothNumber - 1] = "M";
-                }
-            }
-        }
-        //--if the user selects lower, the data will be taken through this loop
-        if (upperOrLower.equals("L")) {
-            System.out.print("Which tooth number      : ");
-            toothNumber = keyboard.nextInt();
-
-            //--if the tooth number selected doesn't exist, the user will be prompted to enter again
-            if (toothNumber > 8 || toothNumber < 0) {
-                do {
-                    System.out.print("Invalid tooth number, try again       : ");
-                    toothNumber = keyboard.nextInt();
-                } while (toothNumber > 8 || toothNumber < 0);
-
-                if (toothNumber < 8 && toothNumber > 0) {
+                if (toothNumber < familyTeethInfo[w][0].length && toothNumber > 0) {
 
                     //--if the tooth is already missing, the user will be prompted to enter again
-                    if (familyTeethInfo[w][1][toothNumber - 1].equals("M")) {
+                    if (familyTeethInfo[w][0][toothNumber - 1].equals("M")) {
                         do {
                             System.out.print("Missing tooth, try again      : ");
                             toothNumber = keyboard.nextInt();
-                        } while (familyTeethInfo[w][1][toothNumber - 1].equals("M"));
-                        familyTeethInfo[w][1][toothNumber - 1] = "M";
+                        } while (familyTeethInfo[w][0][toothNumber - 1].equals("M"));
                     }
+
                     //--if the tooth is not missing, it is extracted
-                    if (!familyTeethInfo[w][1][toothNumber - 1].equals("M")) {
-                        familyTeethInfo[w][1][toothNumber - 1] = "M";
+                    if (!familyTeethInfo[w][0][toothNumber - 1].equals("M")) {
+                        familyTeethInfo[w][0][toothNumber - 1] = "M";
                     }
                 }
+            }
+            //--if the user selects lower, the data will be taken through this loop
+            if (upperOrLower.equals("L")) {
+                System.out.print("Which tooth number      : ");
+                toothNumber = keyboard.nextInt();
+
+                //--if the tooth number selected doesn't exist, the user will be prompted to enter again
+                if (toothNumber > 8 || toothNumber < 0) {
+                    do {
+                        System.out.print("Invalid tooth number, try again       : ");
+                        toothNumber = keyboard.nextInt();
+                    } while (toothNumber > 8 || toothNumber < 0);
+
+                    if (toothNumber < 8 && toothNumber > 0) {
+
+                        //--if the tooth is already missing, the user will be prompted to enter again
+                        if (familyTeethInfo[w][1][toothNumber - 1].equals("M")) {
+                            do {
+                                System.out.print("Missing tooth, try again      : ");
+                                toothNumber = keyboard.nextInt();
+                            } while (familyTeethInfo[w][1][toothNumber - 1].equals("M"));
+                            familyTeethInfo[w][1][toothNumber - 1] = "M";
+                        }
+                        //--if the tooth is not missing, it is extracted
+                        if (!familyTeethInfo[w][1][toothNumber - 1].equals("M")) {
+                            familyTeethInfo[w][1][toothNumber - 1] = "M";
+                        }
+                    }
+
+                }
+
 
             }
-
-
         }
 
         //--The changes to the array are sent back
@@ -345,7 +346,7 @@ public class DentalRecords {
             double familyRootNegative;
             String valueAtTooth;
 
-            //--This loop goes through all of the values of the array and add up the numbers of B's, I's, and M's
+            //--This loop goes through all the values of the array and add up the numbers of B's, I's, and M's
             for (int p = 0; p < familyTeethInfo.length; ++p) {
                 for (int q = 0; q < familyTeethInfo[p].length; ++q) {
                     for (int r = 0; r < familyTeethInfo[p][q].length; ++r) {
