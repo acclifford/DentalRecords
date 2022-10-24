@@ -127,30 +127,25 @@ public class DentalRecords {
             String menuChoice;
 
 
-
+        do{
                 System.out.print("\n");
                 System.out.print("(P)rint, (E)xtract, (R)oot, e(X)it : ");
                 menuChoice = keyboard.next();
                 menuChoice = menuChoice.toUpperCase();
                 System.out.print("\n");
 
-                if ((menuChoice.contains("P") || menuChoice.contains("E") || menuChoice.contains("R")
-                        || menuChoice.contains("X"))) {
+                if (!(menuChoice.contains("P") || !menuChoice.contains("E") || !menuChoice.contains("R")
+                        || !menuChoice.contains("X"))) {
                     do{
                         System.out.print("Invalid menu option, try again   : ");
                         menuChoice = keyboard.next();
                         menuChoice = menuChoice.toUpperCase();
                         System.out.print("\n");
-                    } while ((menuChoice.contains("P") || menuChoice.contains("E") || menuChoice.contains("R")
-                            || menuChoice.contains("X")));
+                    } while ((!menuChoice.contains("P") || !menuChoice.contains("E") || !menuChoice.contains("R")
+                            || !menuChoice.contains("X")));
 
                 }
-                do {
-                    System.out.print("\n");
-                    System.out.print("(P)rint, (E)xtract, (R)oot, e(X)it : ");
-                    menuChoice = keyboard.next();
-                    menuChoice = menuChoice.toUpperCase();
-                    System.out.print("\n");
+
 
                 switch (menuChoice) {
                     case "P":
