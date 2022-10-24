@@ -233,14 +233,14 @@ public class DentalRecords {
                     System.out.print("Which tooth number      : ");
                     toothNumber = keyboard.nextInt();
 
-                    if (toothNumber >8 || toothNumber <0){
+                    if (toothNumber > familyTeethInfo[w][0].length || toothNumber <0){
                         do{
                             System.out.print("Invalid tooth number, try again       : ");
                             toothNumber = keyboard.nextInt();
                         }while (toothNumber >8 || toothNumber <0);
                     }
-                    if (toothNumber < 8 && toothNumber > 0) {
-                        if (!familyTeethInfo[w][0][toothNumber -1].equals("M")) {
+                    if (toothNumber < familyTeethInfo[w][0].length && toothNumber > 0) {
+                        if (!familyTeethInfo[w][0][toothNumber-1 ].equals("M")) {
                             familyTeethInfo[w][0][toothNumber -1] = "M";
                         }
                         if (familyTeethInfo[w][0][toothNumber -1].equals("M")){
@@ -248,7 +248,6 @@ public class DentalRecords {
                                 System.out.print("Missing tooth, try again      : ");
                                 toothNumber = keyboard.nextInt();
                             } while (familyTeethInfo[w][0][toothNumber-1 ].equals("M"));
-                            familyTeethInfo[w][0][toothNumber -1] = "M";
                         }
                     }
                     break;
@@ -264,7 +263,7 @@ public class DentalRecords {
 
                     if (toothNumber < 8 && toothNumber > 0) {
                         if (!familyTeethInfo[w][1][toothNumber - 1].equals("M")) {
-                            familyTeethInfo[w][1][toothNumber - 1] = "M";
+                            familyTeethInfo[w][1][toothNumber-1] = "M";
                         }
                         if (familyTeethInfo[w][1][toothNumber - 1].equals("M")){
                             do {
@@ -304,7 +303,16 @@ public class DentalRecords {
                 for (int q = 0; q < familyTeethInfo[p].length; ++q) {
                     for (int r = 0; r < familyTeethInfo[p][q].length; ++r) {
                         valueAtTooth = familyTeethInfo[p][q][r];
-                        switch (valueAtTooth) {
+                        if (valueAtTooth.equals("B")){
+                            numOfBs +=  1;
+                        }
+                        if (valueAtTooth.equals("I")){
+                            numOfIs += 1;
+                        }
+                        if (valueAtTooth.equals("M")){
+                            numOfMs += 1;
+                        }
+                       /* switch (valueAtTooth) {
                             case "B":
                                 numOfBs += 1;
                                 break;
@@ -313,13 +321,14 @@ public class DentalRecords {
                                 break;
                             case "M":
                                 numOfMs += 1;
-                        }
+                                break;
+                        }*/
 
                     }
                 }
             }
-            familyRootPositive = (-(numOfBs) + (Math.sqrt(Math.pow(numOfBs, 2) - (4 * numOfIs * numOfMs))) / (2 * numOfIs));
-            familyRootNegative = (-(numOfBs) - (Math.sqrt(Math.pow(numOfBs, 2) - (4 * numOfIs * numOfMs))) / (2 * numOfIs));
+            familyRootPositive = (-(numOfBs) + (Math.sqrt(Math.pow(numOfBs, 2) - (4 * numOfIs * numOfMs)))) / (2 * numOfIs);
+            familyRootNegative = (-(numOfBs) - (Math.sqrt(Math.pow(numOfBs, 2) - (4 * numOfIs * numOfMs)))) / (2 * numOfIs);
 
             System.out.println("One root canal at     " + familyRootPositive);
             System.out.println("Another root canal at " + familyRootNegative);
