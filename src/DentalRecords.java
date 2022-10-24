@@ -127,7 +127,7 @@ public class DentalRecords {
             String menuChoice;
 
 
-            do {
+
                 System.out.print("\n");
                 System.out.print("(P)rint, (E)xtract, (R)oot, e(X)it : ");
                 menuChoice = keyboard.next();
@@ -145,6 +145,12 @@ public class DentalRecords {
                             || menuChoice.contains("X")));
 
                 }
+                do {
+                    System.out.print("\n");
+                    System.out.print("(P)rint, (E)xtract, (R)oot, e(X)it : ");
+                    menuChoice = keyboard.next();
+                    menuChoice = menuChoice.toUpperCase();
+                    System.out.print("\n");
 
                 switch (menuChoice) {
                     case "P":
@@ -158,9 +164,6 @@ public class DentalRecords {
                         break;
                     case "X":
                         System.out.println("Exiting the Floridian Tooth Records :-)");
-                        break;
-                    default:
-                            System.out.print("Invalid menu option, try again  : ");
                         break;
                 }
             } while (!menuChoice.equals("X"));
