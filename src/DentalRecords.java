@@ -258,14 +258,6 @@ public class DentalRecords {
             upperOrLower = keyboard.next();
             upperOrLower = upperOrLower.toUpperCase();
 
-            //--this loop sets off if a layer that doesn't exist is selected
-                /*do{
-                System.out.print("Invalid layer, try again : ");
-                upperOrLower = keyboard.next();
-                upperOrLower = upperOrLower.toUpperCase();
-            } while (!upperOrLower.contains("L") || !upperOrLower.contains("U"));
-            */
-
 
             //--if the user selects upper, the data will be taken through this loop
             if (upperOrLower.equals("U")) {
@@ -279,7 +271,7 @@ public class DentalRecords {
                         toothNumber = keyboard.nextInt();
                     } while (toothNumber > 8 || toothNumber < 0);
                 }
-                if (toothNumber < familyTeethInfo[w][0].length && toothNumber > 0) {
+                if (toothNumber  < familyTeethInfo[w][0].length && toothNumber > 0) {
 
                     //--if the tooth is already missing, the user will be prompted to enter again
                     if (familyTeethInfo[w][0][toothNumber - 1].equals("M")) {
