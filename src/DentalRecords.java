@@ -44,9 +44,26 @@ public class DentalRecords {
             typeTeethUpper = keyboard.next();
             typeTeethUpper = typeTeethUpper.toUpperCase();
 
-            int a = 0;
-
-
+            if (typeTeethUpper.contains("A") || typeTeethUpper.contains("C") || typeTeethUpper.contains("D")
+                    || typeTeethUpper.contains("E") || typeTeethUpper.contains("F") || typeTeethUpper.contains("G") ||
+                    typeTeethUpper.contains("H") || typeTeethUpper.contains("J") || typeTeethUpper.contains("K")
+                    || typeTeethUpper.contains("L") || typeTeethUpper.contains("N") || typeTeethUpper.contains("O") ||
+                    typeTeethUpper.contains("P") || typeTeethUpper.contains("Q") || typeTeethUpper.contains("R") ||
+                    typeTeethUpper.contains("S") || typeTeethUpper.contains("T") || typeTeethUpper.contains("U") ||
+                    typeTeethUpper.contains("V") || typeTeethUpper.contains("W") || typeTeethUpper.contains("X") ||
+                    typeTeethUpper.contains("Y") || typeTeethUpper.contains("Z")){
+                do{
+                    System.out.print("Invalid teeth types, try again    : ");
+                    typeTeethUpper = keyboard.next();
+                } while (typeTeethUpper.contains("A") || typeTeethUpper.contains("C") || typeTeethUpper.contains("D")
+                        || typeTeethUpper.contains("E") || typeTeethUpper.contains("F") || typeTeethUpper.contains("G") ||
+                        typeTeethUpper.contains("H") || typeTeethUpper.contains("J") || typeTeethUpper.contains("K")
+                        || typeTeethUpper.contains("L") || typeTeethUpper.contains("N") || typeTeethUpper.contains("O") ||
+                        typeTeethUpper.contains("P") || typeTeethUpper.contains("Q") || typeTeethUpper.contains("R") ||
+                        typeTeethUpper.contains("S") || typeTeethUpper.contains("T") || typeTeethUpper.contains("U") ||
+                        typeTeethUpper.contains("V") || typeTeethUpper.contains("W") || typeTeethUpper.contains("X") ||
+                        typeTeethUpper.contains("Y") || typeTeethUpper.contains("Z"));
+            }
 
 
                 if (typeTeethUpper.length() > 8) {
