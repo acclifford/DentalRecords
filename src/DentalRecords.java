@@ -312,34 +312,19 @@ public class DentalRecords {
                         if (valueAtTooth.equals("M")){
                             numOfMs += 1;
                         }
-                       /* switch (valueAtTooth) {
-                            case "B":
-                                numOfBs += 1;
-                                break;
-                            case "I":
-                                numOfIs += 1;
-                                break;
-                            case "M":
-                                numOfMs += 1;
-                                break;
-                        }*/
-
                     }
                 }
             }
             System.out.print("Bs:" + numOfBs +"    Is:"+ numOfIs +"     Ms:" + numOfMs);
             System.out.print("\n");
 
-            familyRootNegative = ((numOfBs * -1) + (Math.sqrt((Math.pow(numOfBs, 2)) + (4 * numOfIs * numOfMs))) )/ (2 *numOfIs);
-            System.out.println(" Negative Root: " + familyRootNegative);
-            familyRootPositive = ((numOfBs * -1) - (Math.sqrt((Math.pow(numOfBs, 2)) + (4 * numOfIs * numOfMs ))) )/ (2 *numOfIs);
-            System.out.println(" Positive Root: "+ familyRootPositive);
+            familyRootPositive = ((numOfBs * -1) + (Math.sqrt((Math.pow(numOfBs, 2)) + (4 * numOfIs * numOfMs))) )/ (2 *numOfIs);
+            familyRootNegative = ((numOfBs * -1) - (Math.sqrt((Math.pow(numOfBs, 2)) + (4 * numOfIs * numOfMs ))) )/ (2 *numOfIs);
 
-            /*familyRootPositive = (-(numOfBs) + (Math.sqrt(Math.pow(numOfBs, 2) - (4 * numOfIs * numOfMs)))) / (2 * numOfIs);
-            familyRootNegative = (-(numOfBs) - (Math.sqrt(Math.pow(numOfBs, 2) - (4 * numOfIs * numOfMs)))) / (2 * numOfIs);
+            System.out.printf("One root canal at %.2f\n", familyRootPositive);
 
-            System.out.println("One root canal at     " + familyRootPositive);
-            System.out.println("Another root canal at " + familyRootNegative);*/
+            System.out.printf("Another root canal at %.2f\n", familyRootNegative);
+
         }
         //----------------------------------------------------------------------------------
     }
