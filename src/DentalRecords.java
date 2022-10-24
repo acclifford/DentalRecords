@@ -214,9 +214,21 @@ public class DentalRecords {
         String remainingLetters = familyMember.substring(1);
         familyMember = firstLetter + remainingLetters;
 
+
         boolean foundName;
 
-        do {
+        if(!Arrays.stream(justNames).anyMatch(familyMember::equals)){
+            do {
+                System.out.print("Invalid family member, try again   : ");
+                familyMember = keyboard.next();
+                familyMember = familyMember.toLowerCase();
+                 firstLetter = familyMember.substring(0, 1).toUpperCase();
+                 remainingLetters = familyMember.substring(1);
+                familyMember = firstLetter + remainingLetters;
+            } while(!Arrays.stream(justNames).anyMatch(familyMember::equals));
+        }
+
+        /*do {
             if (Arrays.stream(justNames).anyMatch(familyMember::equals)) {
                 foundName = true;
             } else {
@@ -224,7 +236,7 @@ public class DentalRecords {
                 System.out.print("Invalid family member, try again   : ");
                 familyMember = keyboard.next();
             }
-        } while (foundName = false);
+        } while (foundName = false); */
 
         int w = 0;
 
