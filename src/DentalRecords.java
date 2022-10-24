@@ -154,23 +154,10 @@ public class DentalRecords {
                 rootChoice(familyToothInfo);
             }
             if(menuChoice.equals("X")){
-                System.out.println("Exiting the Floridian Tooth Records :-)");
+                System.out.println("\nExiting the Floridian Tooth Records :-)");
             }
-            /*switch (menuChoice) {
-                case "P":
-                    printChoice(familyToothInfo, justNames);
-                    break;
-                case "E":
-                    extractChoice(familyToothInfo, justNames);
-                    break;
-                case "R":
-                    rootChoice(familyToothInfo);
-                    break;
-                case "X":
-                    System.out.println("Exiting the Floridian Tooth Records :-)");
-                    break;
 
-        }*/
+
         } while (!menuChoice.equals("X"));
     }
 
