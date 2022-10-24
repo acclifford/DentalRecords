@@ -227,6 +227,14 @@ public class DentalRecords {
             System.out.print("Which tooth layer (U)pper or (L)ower : ");
             upperOrLower = keyboard.next();
             upperOrLower = upperOrLower.toUpperCase();
+
+            if (!upperOrLower.equals("L") || !upperOrLower.equals("U")){
+                do{
+                System.out.print("Invalid layer, try again : ");
+                upperOrLower = keyboard.next();
+                upperOrLower = upperOrLower.toUpperCase();
+            } while (!upperOrLower.equals("L") || !upperOrLower.equals("U"));
+            }
         }
 
         if (upperOrLower.equals("U")) {
@@ -277,11 +285,8 @@ public class DentalRecords {
                     }
                 }
 
-            } else {
-                System.out.print("Invalid layer, try again : ");
-                upperOrLower = keyboard.next();
-                upperOrLower = upperOrLower.toUpperCase();
             }
+
 
         }
 
